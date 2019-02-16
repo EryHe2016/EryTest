@@ -1,0 +1,41 @@
+#pages li{
+    float: left;
+    height: 20px;
+    padding: 0 10px;
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    background-color: #444444;
+    text-decoration: none;
+    border-right: 1px solid #232323;
+    border-left: 1px solid #666666;
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 0px rgba(255, 255, 255, 0.15);
+    -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 0px rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 0px rgba(255, 255, 255, 0.15);
+}
+
+#pages li a{
+    color:white;
+}
+#pages .active{
+    background-color: #88a9eb;
+    color: #323232;
+}
+
+#pages .disabled{
+    color: #666666;
+    cursor: default;
+}
+#pages{
+    padding:0px;
+    margin: 0px;
+}
+#pages ul{
+    padding:0px;
+    margin:0px;
+}
