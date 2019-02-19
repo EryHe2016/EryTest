@@ -15,24 +15,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//登录页面相关路由
+Route::get('/login', 'LoginController@login');
+Route::post('/login', 'LoginController@dologin');   //验证登录
+Route::get('logout', 'LoginController@logout');     //退出登录
+
+
 //后台路由
-Route::get('admin','AdminController@index');
+Route::group(['middleware'=>'login'], function(){
 
-//用户添加
-Route::get('user/add','UserController@add');
-Route::post('user/insert','UserController@insert');
-Route::get('/user/index', 'UserController@index');
-Route::get('/user/edit/{id}', 'UserController@edit');
-Route::post('/user/update', 'UserController@update');
-Route::get('/user/delete/{id}', 'UserController@delete');
+    Route::get('admin','AdminController@index');
 
-//文章分类路由
-Route::resource('/cate', 'CateController');
+    //用户添加
+    Route::get('user/add','UserController@add');
+    Route::post('user/insert','UserController@insert');
+    Route::get('/user/index', 'UserController@index');
+    Route::get('/user/edit/{id}', 'UserController@edit');
+    Route::post('/user/update', 'UserController@update');
+    Route::get('/user/delete/{id}', 'UserController@delete');
 
-//tag标签路由
-Route::resource('/tag', 'TagController');
+    //文章分类路由
+    Route::resource('/cate', 'CateController');
 
-//文章路由
-Route::resource('/post', 'PostController');
+    //tag标签路由
+    Route::resource('/tag', 'TagController');
+
+    //文章路由
+    Route::resource('/post', 'PostController');
+});
 //测试
 Route::get('/test', 'PostController@test');
