@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//登录页面相关路由
-Route::get('/login', 'LoginController@login');
-Route::post('/login', 'LoginController@dologin');   //验证登录
-Route::get('logout', 'LoginController@logout');     //退出登录
+//后台登录页面相关路由
+Route::get('/admin/login', 'LoginController@login');
+Route::post('/admin/login', 'LoginController@dologin');   //验证登录
+Route::get('/admin/logout', 'LoginController@logout');     //退出登录
 
 
 //后台路由
@@ -43,5 +43,12 @@ Route::group(['middleware'=>'login'], function(){
     //文章路由
     Route::resource('/post', 'PostController');
 });
-//测试
-Route::get('/test', 'PostController@test');
+
+//前台路由
+
+//验证码路由
+Route::get('/captcha', 'Home\LoginController@captcha');
+//登录
+Route::get('/login', 'Home\LoginController@show');
+Route::post('/login', 'Home\LoginController@login');
+
